@@ -1,25 +1,42 @@
 public class problem02 {
     public static boolean isPrime(int n) {
-        if (n <= 1) return false;
+        try {
+            if (n <= 1) return false;
 
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                return false;
+            for (int i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
             }
+            return true;
+
         }
-        return true;
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     public static void prime(int[] numbers) {
-        int sum = 0;
+        try {
+            int sum = 0;
 
-        for (int num : numbers) {
-            if (isPrime(num)) {
-                sum += num;
+            for (int num : numbers) {
+                if (isPrime(num)) {
+                    sum += num;
+                }
             }
+
+            System.out.println("sum of all prime numbers in the array is: " + sum);
+
+        }
+        catch (Exception e) {  // Handles all exceptions
+            System.out.println("Error: " + e.getMessage());
+        }
+        finally {
+            System.out.println("Execution completed."); // Runs always
         }
 
-        System.out.println("sum of all prime numbers in the array is: " + sum);
     }
 
     public static void main(String[] args) {
